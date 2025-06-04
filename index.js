@@ -20,13 +20,13 @@ async function main() {
         try {
           // Si es products/5
           if (recurso.startsWith('products/') && id) {
-            if (/^\d+$/.test(id)) {
+            if (/^\d+$/.test(id)) {// validar si el id es un numero
               console.log(` Consultando producto con ID: ${id}`);
               await getProductById(id);
             }
-
+            
             // Si es solo "products"
-          } else if (argv[3].toLowerCase() === 'products') {
+          } else if (recurso === 'products') {//argv[3].toLowerCase()
             console.log(" Consultando todos los productos...");
             await getAllProducts();
 
