@@ -7,7 +7,7 @@ export async function getAllProducts() {
  try {
    const res = await fetch(BASE_URL);
   const data = await res.json();
-  console.log("Productos disponibles:");
+  console.log("Nuestros productos disponibles:");
   data.forEach(p => {
     console.log(`#${p.id} - ${p.title} ($${p.price})`);
   });
@@ -40,7 +40,6 @@ try {
       'Content-Type': 'application/json'
     }
   });
-
   const data = await res.json();
   console.log("Producto creado:", data);
 } catch (error) {
@@ -53,7 +52,6 @@ try {
     const res = await fetch(`${BASE_URL}/${id}`, {
     method: 'DELETE'
   });
-
   const data = await res.json();
   console.log("Producto eliminado:", data);
 } catch (error) {
