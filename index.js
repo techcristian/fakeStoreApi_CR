@@ -44,7 +44,7 @@ async function main() {
         const digito = /^\d+(\.\d{1,2})?$/.test(price);//  configuracion regex para que contenga . y 2 digitos.((si se necesitan mas digitos se reemplaza el 2 por la cantidad necesaria))
         console.log(digito);
         if (!title || !price || !category) {
-          console.log("Uso: npm run start POST products <title> <price> <category>");
+          console.log("Uso: npm run start POST products <title> <price> <category> || <price> no debe ser negativo");
           return;
         }
          // Validar price
