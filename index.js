@@ -41,14 +41,14 @@ async function main() {
 
       case 'POST':
         const [title, price, category] = params;
-       const digito = /^\d+(\.\d{1,2})?$/.test(price);// validamos que contenga . y 2 digitos
+        const digito = /^\d+(\.\d{1,2})?$/.test(price);//  configuracion regex para que contenga . y 2 digitos.((si se necesitan mas digitos se reemplaza el 2 por la cantidad necesaria))
         if (!title || !price || !category) {
           console.log("Uso: npm run start POST products <title> <price> <category>");
           return;
         }
          // Validar price
         if(!digito) {
-            console.log("El paramametro de <price>, debe ser un numero entero positivo y sin comas!")
+            console.log("El parametro de <price>: debe ser un numero entero positivo y sin comas ni letras!")
             return
         }else{
             await createProduct(title, price, category);
