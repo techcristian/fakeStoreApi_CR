@@ -41,16 +41,17 @@ async function main() {
 
       case 'POST':
         const [title, price, category] = params;
-       
+       const digito = /^\d+(\.\d{1,2})?$/.test(price);// validamos que contenga . y 2 digitos
         if (!title || !price || !category) {
           console.log("Uso: npm run start POST products <title> <price> <category>");
           return;
         }
-         // Validar que price sea un número entero positivo sin puntos ni comas
-        if(/^\d+$/.test(price)) {
-          await createProduct(title, price, category);
-        } else {
-          console.log("El paramametro de <price>, debe ser un numero entero positivo y sin puntos ni comas!")
+         // Validar price
+        if(!digito) {
+            console.log("El paramametro de <price>, debe ser un numero entero positivo y sin comas!")
+            return
+        }else{
+            await createProduct(title, price, category);
         }
        
         break;
